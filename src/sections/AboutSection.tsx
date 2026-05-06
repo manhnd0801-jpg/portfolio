@@ -1,6 +1,7 @@
 import FadeIn from '../components/FadeIn'
 import AnimatedText from '../components/AnimatedText'
 import ContactButton from '../components/ContactButton'
+import ReactLogo from '../components/ReactLogo'
 
 // Thời gian thực tế: GO Solutions Dec 2018 → nay (May 2026) = 7+ năm
 const ABOUT_TEXT =
@@ -8,14 +9,6 @@ const ABOUT_TEXT =
 
 // Tech icon SVGs — inline, không cần external image, đúng chủ đề dev
 const DEV_ICONS = {
-  react: (
-    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full" aria-hidden="true">
-      <circle cx="12" cy="12" r="2.5" fill="#61DAFB" />
-      <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61DAFB" strokeWidth="1.2" fill="none" />
-      <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61DAFB" strokeWidth="1.2" fill="none" transform="rotate(60 12 12)" />
-      <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61DAFB" strokeWidth="1.2" fill="none" transform="rotate(120 12 12)" />
-    </svg>
-  ),
   typescript: (
     <svg viewBox="0 0 24 24" fill="none" className="w-full h-full" aria-hidden="true">
       <rect x="2" y="2" width="20" height="20" rx="3" fill="#3178C6" />
@@ -51,11 +44,11 @@ export default function AboutSection() {
       {/* Decorative dev icons — constrained to max-width */}
       <div className="absolute inset-0 max-w-[1400px] mx-auto w-full pointer-events-none overflow-hidden">
 
-        {/* Top-left: React logo */}
+        {/* Top-left: React logo — animated */}
         <FadeIn delay={0.1} x={-30} y={0} duration={0.8}
           className="absolute top-[6%] left-[2%] md:left-[4%]">
-          <div className="w-[80px] sm:w-[110px] md:w-[140px] opacity-[0.12]">
-            {DEV_ICONS.react}
+          <div className="w-[80px] sm:w-[110px] md:w-[140px] opacity-[0.18]">
+            <ReactLogo className="w-full h-full" />
           </div>
         </FadeIn>
 
