@@ -38,37 +38,37 @@ export default function AboutSection() {
       className="relative min-h-screen flex items-center justify-center px-5 sm:px-8 md:px-10 xl:px-16 py-20"
       style={{ backgroundColor: '#0C0C0C' }}
     >
-      {/* Decorative dev icons — constrained to max-width */}
+      {/* Decorative dev icons — ẩn trên mobile nhỏ, hiện từ sm+ */}
       <div className="absolute inset-0 max-w-[1400px] mx-auto w-full pointer-events-none overflow-hidden">
 
         {/* Top-left: React logo — animated */}
         <FadeIn delay={0.1} x={-30} y={0} duration={0.8}
-          className="absolute top-[6%] left-[2%] md:left-[4%]">
-          <div className="w-[100px] sm:w-[140px] md:w-[180px] opacity-50">
+          className="absolute top-[3%] left-[1%] md:left-[3%]">
+          <div className="w-[60px] sm:w-[100px] md:w-[150px] opacity-40 sm:opacity-50">
             <ReactLogo className="w-full h-full" />
           </div>
         </FadeIn>
 
         {/* Bottom-left: TypeScript */}
         <FadeIn delay={0.15} x={-30} y={0} duration={0.8}
-          className="absolute bottom-[8%] left-[3%] md:left-[6%]">
-          <div className="w-[85px] sm:w-[115px] md:w-[150px] opacity-50">
+          className="absolute bottom-[5%] left-[1%] sm:left-[3%] md:left-[5%]">
+          <div className="w-[50px] sm:w-[85px] md:w-[130px] opacity-40 sm:opacity-50">
             {DEV_ICONS.typescript}
           </div>
         </FadeIn>
 
         {/* Top-right: GitHub */}
         <FadeIn delay={0.1} x={30} y={0} duration={0.8}
-          className="absolute top-[6%] right-[2%] md:right-[4%]">
-          <div className="w-[100px] sm:w-[140px] md:w-[180px] opacity-50">
+          className="absolute top-[3%] right-[1%] md:right-[3%]">
+          <div className="w-[60px] sm:w-[100px] md:w-[150px] opacity-40 sm:opacity-50">
             {DEV_ICONS.github}
           </div>
         </FadeIn>
 
         {/* Bottom-right: Code brackets */}
         <FadeIn delay={0.15} x={30} y={0} duration={0.8}
-          className="absolute bottom-[8%] right-[3%] md:right-[6%]">
-          <div className="w-[100px] sm:w-[140px] md:w-[180px] opacity-50">
+          className="absolute bottom-[5%] right-[1%] sm:right-[3%] md:right-[5%]">
+          <div className="w-[60px] sm:w-[100px] md:w-[150px] opacity-40 sm:opacity-50">
             {DEV_ICONS.code}
           </div>
         </FadeIn>
