@@ -108,9 +108,22 @@ npm run preview   # Preview production build locally
 
 ### Vercel (recommended)
 
+**Option 1 — Import từ GitHub (dễ nhất):**
+
+1. Vào [vercel.com](https://vercel.com) → **Add New Project**
+2. Import repo `manhnd0801-jpg/portfolio` từ GitHub
+3. Vercel tự detect Vite, cấu hình sẵn:
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+   - **Install Command:** `npm install`
+4. Click **Deploy** → xong ✅
+
+**Option 2 — Vercel CLI:**
+
 ```bash
 npm i -g vercel
-vercel
+vercel login
+vercel --prod
 ```
 
 ### Netlify
