@@ -44,7 +44,7 @@ export default function AboutSection() {
         {/* Top-left: React logo — animated */}
         <FadeIn delay={0.1} x={-30} y={0} duration={0.8}
           className="absolute top-[6%] left-[2%] md:left-[4%]">
-          <div className="w-[80px] sm:w-[110px] md:w-[140px] opacity-[0.18]">
+          <div className="w-[100px] sm:w-[140px] md:w-[180px] opacity-50">
             <ReactLogo className="w-full h-full" />
           </div>
         </FadeIn>
@@ -52,7 +52,7 @@ export default function AboutSection() {
         {/* Bottom-left: TypeScript */}
         <FadeIn delay={0.15} x={-30} y={0} duration={0.8}
           className="absolute bottom-[8%] left-[3%] md:left-[6%]">
-          <div className="w-[70px] sm:w-[95px] md:w-[120px] opacity-[0.12]">
+          <div className="w-[85px] sm:w-[115px] md:w-[150px] opacity-50">
             {DEV_ICONS.typescript}
           </div>
         </FadeIn>
@@ -60,7 +60,7 @@ export default function AboutSection() {
         {/* Top-right: GitHub */}
         <FadeIn delay={0.1} x={30} y={0} duration={0.8}
           className="absolute top-[6%] right-[2%] md:right-[4%]">
-          <div className="w-[80px] sm:w-[110px] md:w-[140px] opacity-[0.12]">
+          <div className="w-[100px] sm:w-[140px] md:w-[180px] opacity-50">
             {DEV_ICONS.github}
           </div>
         </FadeIn>
@@ -68,7 +68,7 @@ export default function AboutSection() {
         {/* Bottom-right: Code brackets */}
         <FadeIn delay={0.15} x={30} y={0} duration={0.8}
           className="absolute bottom-[8%] right-[3%] md:right-[6%]">
-          <div className="w-[80px] sm:w-[110px] md:w-[140px] opacity-[0.12]">
+          <div className="w-[100px] sm:w-[140px] md:w-[180px] opacity-50">
             {DEV_ICONS.code}
           </div>
         </FadeIn>
