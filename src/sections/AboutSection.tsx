@@ -2,8 +2,44 @@ import FadeIn from '../components/FadeIn'
 import AnimatedText from '../components/AnimatedText'
 import ContactButton from '../components/ContactButton'
 
+// Thời gian thực tế: GO Solutions Dec 2018 → nay (May 2026) = 7+ năm
 const ABOUT_TEXT =
-  "Self-motivated Web Developer & Team Lead with over 4 years of experience. Passionate about clean code, scalable architecture, and leading teams to success. Currently at VNPT IT, previously Team Lead at FPT Software leading teams of up to 18 members. Eager to take on challenging roles that push the boundaries of modern web development."
+  "Self-motivated Web Developer & Team Lead with over 7 years of experience building high-quality web applications. Passionate about clean code, scalable architecture, and leading teams to success. Currently at VNPT IT, previously Team Lead at FPT Software leading teams of up to 18 members."
+
+// Tech icon SVGs — inline, không cần external image, đúng chủ đề dev
+const DEV_ICONS = {
+  react: (
+    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full" aria-hidden="true">
+      <circle cx="12" cy="12" r="2.5" fill="#61DAFB" />
+      <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61DAFB" strokeWidth="1.2" fill="none" />
+      <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61DAFB" strokeWidth="1.2" fill="none" transform="rotate(60 12 12)" />
+      <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61DAFB" strokeWidth="1.2" fill="none" transform="rotate(120 12 12)" />
+    </svg>
+  ),
+  typescript: (
+    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="3" fill="#3178C6" />
+      <path d="M14.5 11H17M14.5 11V17M14.5 11H12" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M7 13.5C7 12.1 8 11 9.5 11C11 11 12 12.1 12 13.5C12 14.9 11 16 9.5 16C8 16 7 15 7 13.5Z" stroke="white" strokeWidth="1.5" fill="none" />
+    </svg>
+  ),
+  git: (
+    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full" aria-hidden="true">
+      <circle cx="6" cy="6" r="2" fill="#F05032" />
+      <circle cx="18" cy="6" r="2" fill="#F05032" />
+      <circle cx="6" cy="18" r="2" fill="#F05032" />
+      <path d="M6 8v8M8 6h8M8 18h4" stroke="#F05032" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M16 8v4a2 2 0 01-2 2h-2" stroke="#F05032" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  ),
+  code: (
+    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full" aria-hidden="true">
+      <path d="M8 6L3 12L8 18" stroke="#D7E2EA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M16 6L21 12L16 18" stroke="#D7E2EA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M14 4L10 20" stroke="#D7E2EA" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  ),
+}
 
 export default function AboutSection() {
   return (
@@ -12,76 +48,46 @@ export default function AboutSection() {
       className="relative min-h-screen flex items-center justify-center px-5 sm:px-8 md:px-10 xl:px-16 py-20"
       style={{ backgroundColor: '#0C0C0C' }}
     >
-      {/* Constrain decorative images + content to max-width */}
-      <div className="absolute inset-0 max-w-[1400px] mx-auto w-full pointer-events-none">
-        {/* Top-left: Moon */}
-        <FadeIn
-          delay={0.1}
-          x={-30}
-          y={0}
-          duration={0.8}
-          className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] pointer-events-none"
-        >
-          <img
-            src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png"
-            alt=""
-            className="w-[120px] sm:w-[160px] md:w-[210px] h-auto"
-            loading="lazy"
-          />
+      {/* Decorative dev icons — constrained to max-width */}
+      <div className="absolute inset-0 max-w-[1400px] mx-auto w-full pointer-events-none overflow-hidden">
+
+        {/* Top-left: React logo */}
+        <FadeIn delay={0.1} x={-30} y={0} duration={0.8}
+          className="absolute top-[6%] left-[2%] md:left-[4%]">
+          <div className="w-[80px] sm:w-[110px] md:w-[140px] opacity-[0.12]">
+            {DEV_ICONS.react}
+          </div>
         </FadeIn>
 
-        {/* Bottom-left: 3D object */}
-        <FadeIn
-          delay={0.15}
-          x={-30}
-          y={0}
-          duration={0.8}
-          className="absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] pointer-events-none"
-        >
-          <img
-            src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png"
-            alt=""
-            className="w-[100px] sm:w-[140px] md:w-[180px] h-auto"
-            loading="lazy"
-          />
+        {/* Bottom-left: TypeScript */}
+        <FadeIn delay={0.15} x={-30} y={0} duration={0.8}
+          className="absolute bottom-[8%] left-[3%] md:left-[6%]">
+          <div className="w-[70px] sm:w-[95px] md:w-[120px] opacity-[0.12]">
+            {DEV_ICONS.typescript}
+          </div>
         </FadeIn>
 
-        {/* Top-right: Lego */}
-        <FadeIn
-          delay={0.1}
-          x={30}
-          y={0}
-          duration={0.8}
-          className="absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] pointer-events-none"
-        >
-          <img
-            src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png"
-            alt=""
-            className="w-[120px] sm:w-[160px] md:w-[210px] h-auto"
-            loading="lazy"
-          />
+        {/* Top-right: Git */}
+        <FadeIn delay={0.1} x={30} y={0} duration={0.8}
+          className="absolute top-[6%] right-[2%] md:right-[4%]">
+          <div className="w-[80px] sm:w-[110px] md:w-[140px] opacity-[0.12]">
+            {DEV_ICONS.git}
+          </div>
         </FadeIn>
 
-        {/* Bottom-right: 3D group */}
-        <FadeIn
-          delay={0.15}
-          x={30}
-          y={0}
-          duration={0.8}
-          className="absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] pointer-events-none"
-        >
-          <img
-            src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png"
-            alt=""
-            className="w-[130px] sm:w-[170px] md:w-[220px] h-auto"
-            loading="lazy"
-          />
+        {/* Bottom-right: Code brackets */}
+        <FadeIn delay={0.15} x={30} y={0} duration={0.8}
+          className="absolute bottom-[8%] right-[3%] md:right-[6%]">
+          <div className="w-[80px] sm:w-[110px] md:w-[140px] opacity-[0.12]">
+            {DEV_ICONS.code}
+          </div>
         </FadeIn>
+
       </div>
 
       {/* Center content */}
       <div className="flex flex-col items-center text-center z-10">
-        <FadeIn delay={0} y={40}>
+        <FadeIn delay={0} y={16}>
           <h2
             className="hero-heading font-black uppercase leading-none tracking-tight"
             style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
@@ -90,61 +96,93 @@ export default function AboutSection() {
           </h2>
         </FadeIn>
 
-        <div className="flex flex-col items-center gap-10 sm:gap-14 md:gap-16 mt-10 sm:mt-14 md:mt-16">
+        <div className="flex flex-col items-center gap-10 sm:gap-12 md:gap-14 mt-10 sm:mt-12 md:mt-14">
+
           <AnimatedText
             text={ABOUT_TEXT}
-            className="font-medium leading-relaxed max-w-[560px]"
-            style={{
-              color: '#D7E2EA',
-              fontSize: 'clamp(1rem, 2vw, 1.35rem)',
-            }}
+            className="font-medium leading-relaxed max-w-[580px]"
+            style={{ color: '#D7E2EA', fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}
           />
 
-          {/* Info cards */}
-          <FadeIn delay={0.2} y={20}>
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-              <div className="flex flex-col items-center gap-1 px-6 py-4 rounded-2xl border border-[#D7E2EA]/20">
-                <span className="font-black text-[#D7E2EA]" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)' }}>6+</span>
-                <span className="font-light uppercase tracking-widest text-xs text-[#D7E2EA]/60">Years Exp.</span>
+          {/* Stats */}
+          <FadeIn delay={0.2} y={16}>
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-5">
+              {[
+                { value: '7+', label: 'Years Exp.' },
+                { value: '18+', label: 'Team Size' },
+                { value: '5',   label: 'Companies' },
+                { value: '2×',  label: 'Best Award' },
+              ].map(({ value, label }) => (
+                <div key={label}
+                  className="flex flex-col items-center gap-1 px-5 py-4 rounded-2xl border border-[#D7E2EA]/15"
+                >
+                  <span className="font-black text-[#D7E2EA]"
+                    style={{ fontSize: 'clamp(1.4rem, 3.5vw, 2.2rem)' }}>
+                    {value}
+                  </span>
+                  <span className="font-light uppercase tracking-widest text-[#D7E2EA]/50"
+                    style={{ fontSize: 'clamp(0.55rem, 0.9vw, 0.72rem)' }}>
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+
+          {/* Achievements */}
+          <FadeIn delay={0.25} y={16}>
+            <div className="flex flex-col sm:flex-row gap-3 max-w-[580px] w-full">
+              <div className="flex-1 rounded-2xl p-4 text-left"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(182,0,168,0.12) 0%, rgba(118,33,176,0.08) 100%)',
+                  border: '1px solid rgba(182,0,168,0.2)',
+                }}>
+                <p className="font-black text-[#D7E2EA] uppercase tracking-widest mb-1.5"
+                  style={{ fontSize: 'clamp(0.65rem, 1vw, 0.8rem)' }}>
+                  🏆 2024 — FPT Software
+                </p>
+                <p className="font-light text-[#D7E2EA]/60 leading-relaxed"
+                  style={{ fontSize: 'clamp(0.72rem, 1.1vw, 0.88rem)' }}>
+                  Most Effective Team Lead — on-time delivery, highest-performing team of 18 members
+                </p>
               </div>
-              <div className="flex flex-col items-center gap-1 px-6 py-4 rounded-2xl border border-[#D7E2EA]/20">
-                <span className="font-black text-[#D7E2EA]" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)' }}>18+</span>
-                <span className="font-light uppercase tracking-widest text-xs text-[#D7E2EA]/60">Team Size</span>
-              </div>
-              <div className="flex flex-col items-center gap-1 px-6 py-4 rounded-2xl border border-[#D7E2EA]/20">
-                <span className="font-black text-[#D7E2EA]" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)' }}>5</span>
-                <span className="font-light uppercase tracking-widest text-xs text-[#D7E2EA]/60">Companies</span>
-              </div>
-              <div className="flex flex-col items-center gap-1 px-6 py-4 rounded-2xl border border-[#D7E2EA]/20">
-                <span className="font-black text-[#D7E2EA]" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)' }}>2×</span>
-                <span className="font-light uppercase tracking-widest text-xs text-[#D7E2EA]/60">Best Award</span>
+              <div className="flex-1 rounded-2xl p-4 text-left"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(182,0,168,0.12) 0%, rgba(118,33,176,0.08) 100%)',
+                  border: '1px solid rgba(182,0,168,0.2)',
+                }}>
+                <p className="font-black text-[#D7E2EA] uppercase tracking-widest mb-1.5"
+                  style={{ fontSize: 'clamp(0.65rem, 1vw, 0.8rem)' }}>
+                  🏆 2023 — FPT Software
+                </p>
+                <p className="font-light text-[#D7E2EA]/60 leading-relaxed"
+                  style={{ fontSize: 'clamp(0.72rem, 1.1vw, 0.88rem)' }}>
+                  Best Employee of the Project — led team with highest productivity
+                </p>
               </div>
             </div>
           </FadeIn>
 
-          {/* Achievements highlight */}
-          <FadeIn delay={0.3} y={20}>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-[560px] w-full">
-              <div
-                className="flex-1 rounded-2xl p-4 text-left"
-                style={{ background: 'linear-gradient(135deg, rgba(182,0,168,0.15) 0%, rgba(118,33,176,0.1) 100%)', border: '1px solid rgba(182,0,168,0.25)' }}
-              >
-                <p className="font-black text-[#D7E2EA] text-sm uppercase tracking-widest mb-1">🏆 2024</p>
-                <p className="font-light text-[#D7E2EA]/70 text-xs leading-relaxed">Most Effective Team Lead — on-time delivery, highest-performing team</p>
-              </div>
-              <div
-                className="flex-1 rounded-2xl p-4 text-left"
-                style={{ background: 'linear-gradient(135deg, rgba(182,0,168,0.15) 0%, rgba(118,33,176,0.1) 100%)', border: '1px solid rgba(182,0,168,0.25)' }}
-              >
-                <p className="font-black text-[#D7E2EA] text-sm uppercase tracking-widest mb-1">🏆 2023</p>
-                <p className="font-light text-[#D7E2EA]/70 text-xs leading-relaxed">Best Employee of the Project — highest team productivity</p>
-              </div>
+          {/* Soft skills row */}
+          <FadeIn delay={0.3} y={16}>
+            <div className="flex flex-wrap justify-center gap-2">
+              {['Leadership', 'Mentoring', 'Communication', 'Problem Solving', 'Agile'].map((s) => (
+                <span key={s}
+                  className="px-4 py-1.5 rounded-full font-light uppercase tracking-widest"
+                  style={{
+                    border: '1px solid rgba(215,226,234,0.15)',
+                    color: '#D7E2EA',
+                    fontSize: 'clamp(0.6rem, 0.95vw, 0.78rem)',
+                    opacity: 0.55,
+                  }}>
+                  {s}
+                </span>
+              ))}
             </div>
           </FadeIn>
 
-          <div className="mt-6 sm:mt-10 md:mt-14">
-            <ContactButton />
-          </div>
+          <ContactButton />
+
         </div>
       </div>
     </section>

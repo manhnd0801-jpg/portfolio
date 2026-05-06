@@ -349,7 +349,7 @@ export default function ProjectsSection() {
               className="font-light"
               style={{ color: '#D7E2EA', fontSize: 'clamp(0.9rem, 1.8vw, 1.2rem)', opacity: 0.5 }}
             >
-              Hà Nội, Việt Nam
+              Số 4 ngõ 105 Yên Hoà, Hà Nội
             </span>
           </div>
         </div>

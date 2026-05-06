@@ -47,7 +47,7 @@ export default function HeroSection() {
             className="font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[260px]"
             style={{ color: '#D7E2EA', fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
           >
-            A frontend developer &amp; team lead driven by clean code and scalable solutions
+            ReactJS developer &amp; team lead — 7+ years building scalable web apps
           </p>
         </FadeIn>
 

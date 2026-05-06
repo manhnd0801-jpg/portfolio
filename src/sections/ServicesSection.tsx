@@ -31,6 +31,12 @@ const SKILL_GROUPS = [
     description: 'Leading teams of up to 18 members — from planning and mentoring to risk management and delivery.',
     tags: ['Team Lead', 'Sub-PM', 'WBS Planning', 'Risk Assessment', 'Team Evaluation', 'Mentoring', 'Agile', 'Estimation'],
   },
+  {
+    number: '06',
+    name: 'Soft Skills',
+    description: 'Strong interpersonal and professional skills built across 7+ years working in cross-functional teams at FPT Software and VNPT IT.',
+    tags: ['Leadership', 'Mentoring', 'Communication', 'Problem Solving', 'Deadline Management', 'Stakeholder Reporting'],
+  },
 ]
 
 export default function ServicesSection() {
