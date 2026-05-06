@@ -241,9 +241,11 @@ export default function ProjectsSection() {
   return (
     <section
       id="experience"
-      className="rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 z-10 relative px-5 sm:px-8 md:px-10 pt-20 sm:pt-24 md:pt-32 pb-20"
+      className="rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 z-10 relative px-5 sm:px-8 md:px-10 xl:px-16 pt-20 sm:pt-24 md:pt-32 pb-20"
       style={{ backgroundColor: '#0C0C0C' }}
     >
+      {/* Inner max-width wrapper */}
+      <div className="max-w-[1400px] mx-auto">
       {/* Heading */}
       <FadeIn delay={0} y={40}>
         <h2
@@ -352,6 +354,7 @@ export default function ProjectsSection() {
           </div>
         </div>
       </FadeIn>
+      </div> {/* end inner max-width wrapper */}
     </section>
   )
 }

@@ -37,9 +37,11 @@ export default function ServicesSection() {
   return (
     <section
       id="skills"
-      className="rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32"
+      className="rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] px-5 sm:px-8 md:px-10 xl:px-16 py-20 sm:py-24 md:py-32"
       style={{ backgroundColor: '#FFFFFF' }}
     >
+      {/* Inner max-width wrapper */}
+      <div className="max-w-[1400px] mx-auto">
       <FadeIn delay={0} y={40}>
         <h2
           className="font-black uppercase text-center mb-16 sm:mb-20 md:mb-28"
@@ -107,6 +109,7 @@ export default function ServicesSection() {
           </FadeIn>
         ))}
       </div>
+      </div> {/* end inner max-width wrapper */}
     </section>
   )
 }

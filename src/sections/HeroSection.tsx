@@ -12,7 +12,7 @@ export default function HeroSection() {
     >
       {/* Navbar */}
       <FadeIn delay={0} y={-20}>
-        <nav className="flex justify-between items-center px-6 md:px-10 pt-6 md:pt-8">
+        <nav className="flex justify-between items-center px-6 md:px-10 xl:px-16 pt-6 md:pt-8 max-w-[1400px] mx-auto w-full">
           {NAV_LINKS.map((link) => (
             <a
               key={link}
@@ -40,7 +40,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="flex justify-between items-end mt-auto pb-7 sm:pb-8 md:pb-10 px-6 md:px-10 relative z-20">
+      <div className="flex justify-between items-end mt-auto pb-7 sm:pb-8 md:pb-10 px-6 md:px-10 xl:px-16 relative z-20 max-w-[1400px] mx-auto w-full">
         {/* Left text */}
         <FadeIn delay={0.35} y={20}>
           <p
