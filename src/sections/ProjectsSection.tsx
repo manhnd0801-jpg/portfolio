@@ -104,7 +104,7 @@ function ExperienceCard({
     offset: ['start start', 'end end'],
   })
 
-  const targetScale = 1 - (TOTAL_CARDS - 1 - index) * 0.025
+  const targetScale = 1 - (TOTAL_CARDS - 1 - index) * 0.015 // giảm từ 0.025 → 0.015, scale ít hơn
   const scale = useTransform(
     scrollYProgress,
     [index / TOTAL_CARDS, 1],
@@ -115,8 +115,8 @@ function ExperienceCard({
 
   return (
     <div
-      className="h-[90vh] flex items-start justify-center"
-      style={{ paddingTop: `${index * 24}px` }}
+      className="h-[80vh] flex items-start justify-center" // giảm từ 90vh → 80vh, scroll ngắn hơn
+      style={{ paddingTop: `${index * 20}px` }} // giảm từ 24 → 20
     >
       <motion.div
         className="sticky top-20 md:top-28 w-full border-2 border-[#D7E2EA]/60 p-5 sm:p-7 md:p-9"

@@ -15,9 +15,9 @@ export default function AboutSection() {
       {/* Top-left: Moon */}
       <FadeIn
         delay={0.1}
-        x={-80}
+        x={-30}
         y={0}
-        duration={0.9}
+        duration={0.8}
         className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] pointer-events-none"
       >
         <img
@@ -30,10 +30,10 @@ export default function AboutSection() {
 
       {/* Bottom-left: 3D object */}
       <FadeIn
-        delay={0.25}
-        x={-80}
+        delay={0.15}
+        x={-30}
         y={0}
-        duration={0.9}
+        duration={0.8}
         className="absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] pointer-events-none"
       >
         <img
@@ -46,10 +46,10 @@ export default function AboutSection() {
 
       {/* Top-right: Lego */}
       <FadeIn
-        delay={0.15}
-        x={80}
+        delay={0.1}
+        x={30}
         y={0}
-        duration={0.9}
+        duration={0.8}
         className="absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] pointer-events-none"
       >
         <img
@@ -62,10 +62,10 @@ export default function AboutSection() {
 
       {/* Bottom-right: 3D group */}
       <FadeIn
-        delay={0.3}
-        x={80}
+        delay={0.15}
+        x={30}
         y={0}
-        duration={0.9}
+        duration={0.8}
         className="absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] pointer-events-none"
       >
         <img

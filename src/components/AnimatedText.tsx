@@ -12,50 +12,50 @@ export default function AnimatedText({ text, className, style }: AnimatedTextPro
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start 0.8', 'end 0.2'],
+    offset: ['start 0.9', 'end 0.3'], // thu hẹp vùng trigger, animation xảy ra nhanh hơn
   })
 
-  const characters = text.split('')
+  // Chia theo từ thay vì từng ký tự — ít motion hơn, dễ đọc hơn
+  const words = text.split(' ')
 
   return (
     <p ref={ref} className={`relative ${className ?? ''}`} style={style} aria-label={text}>
-      {characters.map((char, i) => {
-        const start = i / characters.length
-        const end = (i + 1) / characters.length
-
-        return (
-          <Character
-            key={i}
-            char={char}
-            start={start}
-            end={end}
-            scrollYProgress={scrollYProgress}
-          />
-        )
-      })}
+      {words.map((word, i) => (
+        <Word
+          key={i}
+          word={word}
+          index={i}
+          total={words.length}
+          scrollYProgress={scrollYProgress}
+        />
+      ))}
     </p>
   )
 }
 
-function Character({
-  char,
-  start,
-  end,
+function Word({
+  word,
+  index,
+  total,
   scrollYProgress,
 }: {
-  char: string
-  start: number
-  end: number
+  word: string
+  index: number
+  total: number
   scrollYProgress: ReturnType<typeof useScroll>['scrollYProgress']
 }) {
-  const opacity = useTransform(scrollYProgress, [start, end], [0.2, 1])
+  // Mỗi từ animate trong 1/3 tổng scroll range, overlap nhau
+  const start = (index / total) * 0.7
+  const end = start + 0.35
+
+  const opacity = useTransform(scrollYProgress, [start, end], [0.25, 1])
 
   return (
-    <span className="relative inline-block">
-      <span className="invisible">{char === ' ' ? '\u00A0' : char}</span>
-      <motion.span className="absolute inset-0" style={{ opacity }}>
-        {char === ' ' ? '\u00A0' : char}
+    <>
+      <motion.span className="inline" style={{ opacity }}>
+        {word}
       </motion.span>
-    </span>
+      {index < total - 1 && ' '}
+    </>
   )
 }

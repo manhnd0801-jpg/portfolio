@@ -40,7 +40,8 @@ export default function MarqueeSection() {
       if (!sectionRef.current) return
       const rect = sectionRef.current.getBoundingClientRect()
       const sectionTop = window.scrollY + rect.top
-      const scrollOffset = (window.scrollY - sectionTop + window.innerHeight) * 0.3
+      // giảm từ 0.3 → 0.12: chạy chậm hơn, ít gây chóng mặt
+      const scrollOffset = (window.scrollY - sectionTop + window.innerHeight) * 0.12
       setOffset(scrollOffset)
     }
 

@@ -13,13 +13,13 @@ interface FadeInProps {
 export default function FadeIn({
   children,
   delay = 0,
-  duration = 0.7,
+  duration = 0.6,
   x = 0,
-  y = 30,
+  y = 16, // giảm từ 30 → 16, chuyển động nhẹ hơn
   className,
 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '50px', amount: 0 })
+  const isInView = useInView(ref, { once: true, margin: '0px', amount: 0.1 })
 
   return (
     <motion.div
@@ -30,7 +30,7 @@ export default function FadeIn({
       transition={{
         duration,
         delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: [0.22, 1, 0.36, 1], // ease-out mượt, không bật
       }}
     >
       {children}
