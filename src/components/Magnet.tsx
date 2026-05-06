@@ -11,10 +11,10 @@ interface MagnetProps {
 
 export default function Magnet({
   children,
-  padding = 60,        // giảm từ 150 → 60, chỉ kéo khi chuột gần hơn
-  strength = 6,        // tăng divisor từ 3 → 6, di chuyển ít hơn 2x
-  activeTransition = 'transform 0.4s ease-out',
-  inactiveTransition = 'transform 0.7s ease-in-out',
+  padding = 150,       // spec: 150
+  strength = 3,        // spec: 3
+  activeTransition = 'transform 0.3s ease-out',    // spec
+  inactiveTransition = 'transform 0.6s ease-in-out', // spec
   className,
 }: MagnetProps) {
   const ref = useRef<HTMLDivElement>(null)

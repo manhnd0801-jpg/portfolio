@@ -29,38 +29,53 @@ const ROW2 = IMAGES.slice(11)
 const ROW1_TRIPLED = [...ROW1, ...ROW1, ...ROW1]
 const ROW2_TRIPLED = [...ROW2, ...ROW2, ...ROW2]
 
+// Tile size: responsive — nhỏ trên mobile, đúng spec trên desktop
+const TILE_W_MOBILE = 220
+const TILE_H_MOBILE = 140
+const TILE_W_DESKTOP = 420
+const TILE_H_DESKTOP = 270
+
 export default function MarqueeSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const [offset, setOffset] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return
       const rect = sectionRef.current.getBoundingClientRect()
       const sectionTop = window.scrollY + rect.top
-      const scrollOffset = (window.scrollY - sectionTop + window.innerHeight) * 0.12
+      // spec: * 0.3, mobile giảm nhẹ để không quá nhanh
+      const multiplier = isMobile ? 0.15 : 0.3
+      const scrollOffset = (window.scrollY - sectionTop + window.innerHeight) * multiplier
       setOffset(scrollOffset)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [isMobile])
 
-  // Tile size responsive: nhỏ hơn trên mobile
-  const tileW = typeof window !== 'undefined' && window.innerWidth < 640 ? 200 : 420
-  const tileH = typeof window !== 'undefined' && window.innerWidth < 640 ? 130 : 270
+  const tileW = isMobile ? TILE_W_MOBILE : TILE_W_DESKTOP
+  const tileH = isMobile ? TILE_H_MOBILE : TILE_H_DESKTOP
 
   return (
     <section
       ref={sectionRef}
-      className="pt-16 sm:pt-24 md:pt-40 pb-8 sm:pb-10 overflow-hidden"
+      className="pt-16 sm:pt-32 md:pt-40 pb-8 sm:pb-10 overflow-hidden"
       style={{ backgroundColor: '#0C0C0C' }}
     >
-      {/* Row 1 */}
+      {/* Row 1 — moves right (spec: translateX(offset - 200)) */}
       <div
         className="flex mb-2 sm:mb-3"
         style={{
-          gap: '8px',
+          gap: isMobile ? '6px' : '12px',
           transform: `translateX(${offset - 200}px)`,
           willChange: 'transform',
         }}
@@ -77,11 +92,11 @@ export default function MarqueeSection() {
         ))}
       </div>
 
-      {/* Row 2 */}
+      {/* Row 2 — moves left (spec: translateX(-(offset - 200))) */}
       <div
         className="flex"
         style={{
-          gap: '8px',
+          gap: isMobile ? '6px' : '12px',
           transform: `translateX(${-(offset - 200)}px)`,
           willChange: 'transform',
         }}

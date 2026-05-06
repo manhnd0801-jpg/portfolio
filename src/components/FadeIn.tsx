@@ -1,5 +1,6 @@
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useRef, type ReactNode } from 'react'
+import { useInView } from 'framer-motion'
 
 interface FadeInProps {
   children: ReactNode
@@ -13,13 +14,14 @@ interface FadeInProps {
 export default function FadeIn({
   children,
   delay = 0,
-  duration = 0.6,
+  duration = 0.7,
   x = 0,
-  y = 16, // giảm từ 30 → 16, chuyển động nhẹ hơn
+  y = 30,
   className,
 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '0px', amount: 0.1 })
+  // spec: viewport once:true, margin:"50px", amount:0
+  const isInView = useInView(ref, { once: true, margin: '50px', amount: 0 })
 
   return (
     <motion.div
@@ -30,7 +32,7 @@ export default function FadeIn({
       transition={{
         duration,
         delay,
-        ease: [0.22, 1, 0.36, 1], // ease-out mượt, không bật
+        ease: [0.25, 0.1, 0.25, 1], // spec easing
       }}
     >
       {children}
